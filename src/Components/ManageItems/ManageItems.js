@@ -88,7 +88,8 @@ const ManageItems = () => {
             }
             </div> */}
         
-        <Table striped bordered hover>
+        <div className="row text-center">
+              <Table striped bordered hover>
   <thead>
     <tr>
       <th>ID</th>
@@ -100,22 +101,26 @@ const ManageItems = () => {
     </tr>
   </thead>
           <tbody>
+            
             {
-              products.map(product=><tr>
+              products.map(product=><tr className=" container col-md-12 col-md-6 col-lg-4">
                 <td>{ product._id}</td>
                 <td>{ product.name }</td>
                 <td>{ product.price}</td>
                 <td>{product.quantity}</td>
                 <td><Button className="btn btn-danger" onClick={() => handleDelete(product._id)}>DELETE</Button></td>
-                <td><Button className="mx-2 btn btn-success"  onClick={()=>handleDeliver(product)} >Confirm</Button></td>
+                <td><Button className="mx-2 btn btn-success"  onClick={()=>handleDeliver(product)} >CONFIRM</Button></td>
     </tr>)
             }
-            <Button onClick={navigateToAddItems}>Add New Product</Button>
+            
     
   </tbody>
 </Table>
-        
+        <Button className="text-center btn btn-secondary w-25 mx-auto text-white " onClick={navigateToAddItems}>Add New Product</Button>
         </div>
+            </div>
+        
+        
     );
 };
 
