@@ -13,17 +13,20 @@ const Header = () => {
 };
     return (
         <div>
-           <Navbar bg="dark" variant="dark">
+           {/* <Navbar collapseOnSelect expand="lg" sticky="top" bg="dark" variant="dark">
     <Container>
-    <Navbar.Brand href="#home"> <span className="text-danger fw-bold">Powersurge</span> Supplements</Navbar.Brand>
-    <Nav className="ms-auto">
+            <Navbar.Brand as={Link} to="/"> <span className="text-danger fw-bold">Powersurge</span> Supplements</Navbar.Brand> */}
+        <Navbar collapseOnSelect expand="lg" sticky="top" bg="dark" variant="dark">
+  <Container>
+  <Navbar.Brand as={Link} to="/"> <span className="text-danger fw-bold">Powersurge</span> Supplements</Navbar.Brand> 
+    <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="ms-auto">
        <Nav.Link  className="text-white fw-bold" as={Link} to="/home">Home</Nav.Link>
-      <Nav.Link  className="text-white fw-bold" as={Link} to="/supplements">Supplements</Nav.Link>
       <Nav.Link  className="text-white fw-bold" as={Link} to="/inventory">Inventory</Nav.Link>
               
               
               {
-                user ? <span className="text-white fw-bold  mt-1 mx-2 bg-dark">
+                user ? <span className="text-white fw-bold  mt-1 mx-2 ">
                   <NavDropdown className="text-white" title={user?.email} id="basic-nav-dropdown">
                     
                     <Nav.Link className="text-dark fw-bold" as={Link} to="/manageitems">Manage Items</Nav.Link>
@@ -39,8 +42,11 @@ const Header = () => {
                    :  <Nav.Link className="text-white fw-bold" as={Link} to="/login">Login</Nav.Link>
               }
     </Nav>
+            </Navbar.Collapse>
+    
     </Container>
-  </Navbar>
+        </Navbar>
+        
         </div>
     );
 };

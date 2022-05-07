@@ -5,7 +5,7 @@ const UseProducts = () => {
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(response => response.json())
-            .then(data => setProducts(data));
+            .then(data => setProducts(data.slice(0, 6)));
     },[])
     return [products, setProducts];
 };

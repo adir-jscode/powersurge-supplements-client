@@ -13,6 +13,8 @@ import ManageItems from './Components/ManageItems/ManageItems';
 import AddItem from './Components/AddItem/AddItem';
 import MyItems from './Components/MyItems/MyItems';
 import InventoryDetails from './Components/InventoryDetails/InventoryDetails';
+import Footer from './Components/Footer/Footer';
+import NotFound from './Components/NotFound/NotFound';
 
 
 function App() {
@@ -23,7 +25,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/supplements" element={<Supplements></Supplements>}></Route>
         <Route path="/inventory" element={
           <Inventory></Inventory>}>
 
@@ -50,7 +51,9 @@ function App() {
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

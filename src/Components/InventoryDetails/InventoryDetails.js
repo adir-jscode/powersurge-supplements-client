@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import UseProducts from '../../Hooks/UseProducts/UseProducts';
 
 const InventoryDetails = () => {
     const { inventoryId } = useParams();
     const [product, setProduct] = useState({});
+    const navigate = useNavigate();
 
-    const productQuantity = product.quantity;
-    console.log(productQuantity);
+    const navigateToInventories = () => {
+        navigate("/manageitems");
+    }
     
-    // const [quantity, setQuantity] = useState();
-    // console.log(quantity);
     
     
     useEffect(() => {
@@ -53,38 +53,48 @@ const InventoryDetails = () => {
     }
 
 return (
-        <div className="container w-50 mx-auto mt-5">
-            <h1 className="w-100 text-center">Product Id : {inventoryId}</h1>
+        <div className="container w-50 mx-auto mt-5 d-flex text-center">
+        <div className="row">
             <div className="container col-12 col-md-6 col-lg-4 text-center">
                           <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={product.image} />
+                <Card.Img variant="top" src={product.image} />
+                <h5 className="w-100 text-center">Product Id : {inventoryId}</h5>
   <Card.Body>
                         <Card.Title>Name : { product.name}</Card.Title>
-                        <Card.Title>Price : { product.price}</Card.Title>
+                        <Card.Title>Price : ${ product.price}</Card.Title>
     <Card.Title>Quantity : {product.quantity}</Card.Title> 
     <Card.Title>Supplier : { product.supplier}</Card.Title>
     <Card.Text>
       {product.description}
     </Card.Text>
     <Button variant="dark" onClick={handleDelivery}>Delivered</Button>
-  </Card.Body>
-                </Card>
-                
+                </Card.Body>
                 <Form onSubmit={handleStock} >
-  
+                    <h5>Restock</h5>
   <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Quantity</Form.Label>
+    <Form.Label></Form.Label>
     <Form.Control type="number" name="quantity" placeholder="Enter quantity" />
           </Form.Group>
 
           
   <Button variant="dark" type="submit">
-    Stock 
+    Add Quantity 
           </Button>
-        </Form>
+            </Form>
+            </Card>
+            
+                
+                
+           
             </div>
-     
+            <div className="text-center mx-5">
+                <button onClick={navigateToInventories} className="btn btn-secondary w-50 text-center  mt-5">Manage Inventory</button>
+            </div>
+                 
         </div>
+        
+            </div>
+            
     );
 };
     

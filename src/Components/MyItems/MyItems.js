@@ -31,8 +31,8 @@ const MyItems = () => {
     
   }
     return (
-        <div className="container w-50 mx-auto mt-5">
-            <h1 className="text-center">Here is my items {items.length}</h1>
+        <div className="container  mx-auto mt-5">
+            <h1 className=" text-center text-dark fw-bold"> Confirmed items: {items.length}</h1>
               <div className="row">
                     {
                     items.map(items => <div className="container col-12 col-md-6 col-lg-4 text-center" key={items._id}>
@@ -40,12 +40,11 @@ const MyItems = () => {
   <Card.Img variant="top" src={items.image} />
   <Card.Body>
                         <Card.Title>{ items.name}</Card.Title>
-                        <Card.Title>{ items.price}</Card.Title>
-                        <Card.Title>{ items.quantity}</Card.Title>
-                        <Card.Title>{ items.supplier}</Card.Title>
-    <Card.Text>
+                        <Card.Title>${ items.price}</Card.Title>
+                        
+    {/* <Card.Text>
       {items.description}
-    </Card.Text>
+    </Card.Text> */}
     <Button variant="danger" onClick={()=>handleDelete(items._id)}>Delete</Button>
   </Card.Body>
 </Card>

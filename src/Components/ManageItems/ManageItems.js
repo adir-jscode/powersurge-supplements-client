@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const ManageItems = () => {
     const [products, setProducts] = useState([]);
-    const {_id,name,price,image,description,quantity,supplier}= products;
+    const navigate = useNavigate();
     useEffect(() => {
         fetch("http://localhost:5000/products")
             .then(response => response.json())
@@ -15,7 +16,10 @@ const ManageItems = () => {
     }, [])
 
 
-    const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
+  const navigateToAddItems = () => {
+    navigate("/additem");
+  }
     
     const handleDeliver = (products) => {
         console.log(products);
@@ -63,7 +67,7 @@ const ManageItems = () => {
         <div className="container">
             <h1>Total Items: {products.length}</h1>
             <ToastContainer />
-            <div className="row">
+            {/* <div className="row">
                     {
                     products.map(product => <div className="container col-12 col-md-6 col-lg-4 text-center" key={product._id}>
                     <Card style={{ width: '18rem' }}>
@@ -82,7 +86,34 @@ const ManageItems = () => {
 </Card>
                 </div> )
             }
-            </div>
+            </div> */}
+        
+        <Table striped bordered hover>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Product Name</th>
+      <th>Price</th>
+              <th>Quantity</th>
+              <th>Remove</th>
+              <th>Add</th>
+    </tr>
+  </thead>
+          <tbody>
+            {
+              products.map(product=><tr>
+                <td>{ product._id}</td>
+                <td>{ product.name }</td>
+                <td>{ product.price}</td>
+                <td>{product.quantity}</td>
+                <td><Button className="btn btn-danger" onClick={() => handleDelete(product._id)}>DELETE</Button></td>
+                <td><Button className="mx-2 btn btn-success"  onClick={()=>handleDeliver(product)} >Confirm</Button></td>
+    </tr>)
+            }
+            <Button onClick={navigateToAddItems}>Add New Product</Button>
+    
+  </tbody>
+</Table>
         
         </div>
     );
