@@ -4,11 +4,11 @@
 
 # About Project
 
-- This project is about independent service provider
-- It's contains packages of traveling guide
-- Service contains 3 different type of packages
-- Home page contains a Banner,Services and a footer
-- It requires user authentication
+- This project is Manage inventory items
+- It's contains collection of products
+- In this project we use CRUD operations
+- Home page contains a Banner,products, categories, recent post and a footer
+- We use JWT authentication
 
 # Languages and technologies
 
