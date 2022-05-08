@@ -19,8 +19,10 @@ const MyItems = () => {
     }, [user.email])
 
     const handleDelete = (id) => {
-    console.log(id);
-    fetch(`http://localhost:5000/myitems/${id}`, {
+      console.log(id);
+      const confirm = window.confirm('Are you sure?');
+      if (confirm) {
+        fetch(`http://localhost:5000/myitems/${id}`, {
       method: 'DELETE'
     })
         .then(response => response.json())
@@ -30,6 +32,8 @@ const MyItems = () => {
       })
     
   }
+      }
+    
     return (
         <div className="container  mx-auto mt-5">
             <h1 className=" text-center text-dark fw-bold"> Confirmed items: {items.length}</h1>

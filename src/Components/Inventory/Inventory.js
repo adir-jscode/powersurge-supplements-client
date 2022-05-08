@@ -25,7 +25,9 @@ const Inventory = () => {
   <img className="card-img-top" src={product.image} alt=""/>
   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
-                    <p className="fw-bold">${product.price}</p>
+                                <p className="fw-bold">${product.price}</p>
+                                <h5 className="card-title">Quantity : {product.quantity}</h5>
+                                <h5 className="card-title">Supplier : {product.supplier}</h5>
     <p className="card-text">{product.description}</p>
     <button onClick={()=>handleStock(product._id)} className="btn btn-dark">Update</button>
   </div>

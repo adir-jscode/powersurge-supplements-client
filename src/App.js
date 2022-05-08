@@ -15,6 +15,7 @@ import MyItems from './Components/MyItems/MyItems';
 import InventoryDetails from './Components/InventoryDetails/InventoryDetails';
 import Footer from './Components/Footer/Footer';
 import NotFound from './Components/NotFound/NotFound';
+import Blogs from './Components/Blogs/Blogs';
 
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/inventory" element={
           <Inventory></Inventory>}>
+
+        </Route>
+        <Route path="/blogs" element={
+          <Blogs></Blogs>}>
 
         </Route>
         <Route path="/manageitems" element={<RequireAuth>
