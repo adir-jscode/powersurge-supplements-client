@@ -16,9 +16,11 @@ import InventoryDetails from './Components/InventoryDetails/InventoryDetails';
 import Footer from './Components/Footer/Footer';
 import NotFound from './Components/NotFound/NotFound';
 import Blogs from './Components/Blogs/Blogs';
+import UseProducts from './Hooks/UseProducts/UseProducts';
 
 
 function App() {
+  
   return (
     <div className="App">
       <Header></Header>

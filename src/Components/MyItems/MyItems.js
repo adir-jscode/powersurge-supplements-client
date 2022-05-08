@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/firebase.init';
+import Spinner from '../Spinner/Spinner';
 
 const MyItems = () => {
-    const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
     const [user] = useAuthState(auth);
 
-    useEffect(() => {
+  useEffect(() => {
+      setIsLoading(true);
         fetch('http://localhost:5000/selecteditems', {
              headers: {
     "authorization": ` ${user.email} ${localStorage.getItem("accessToken")}`,
@@ -15,7 +18,10 @@ const MyItems = () => {
   },
         })
             .then(response => response.json())
-        .then(data=>setItems(data))
+          .then(data => {
+            setItems(data)
+            setIsLoading(false)
+          })
     }, [user.email])
 
     const handleDelete = (id) => {
@@ -38,7 +44,7 @@ const MyItems = () => {
         <div className="container  mx-auto mt-5">
             <h1 className=" text-center text-dark fw-bold"> Confirmed items: {items.length}</h1>
               <div className="row">
-                    {
+                    { isLoading ? <Spinner></Spinner> : 
                     items.map(items => <div className="container col-12 col-md-6 col-lg-4 text-center" key={items._id}>
                     <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={items.image} />
