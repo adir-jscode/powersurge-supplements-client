@@ -4,7 +4,7 @@
 
 # About Project
 
-- This project is Manage inventory items
+- This project is about Manage inventory items
 - It's contains collection of products
 - In this project we use CRUD operations
 - Home page contains a Banner,products, categories, recent post and a footer
