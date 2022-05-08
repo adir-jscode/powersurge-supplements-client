@@ -18,7 +18,7 @@ const InventoryDetails = () => {
         fetch(`http://localhost:5000/products/${inventoryId}`)
             .then(response => response.json())
             .then(data => setProduct(data));
-    }, [])
+    }, [product])
     
     const handleDelivery = () => {
         console.log("clicked");
