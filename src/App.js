@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Components/Home/Home/Home';
-import Supplements from './Components/Supplements/Supplements';
+
 import Login from './Components/Login/Login';
 import Header from './Components/Home/Header/Header';
 import Inventory from './Components/Inventory/Inventory';

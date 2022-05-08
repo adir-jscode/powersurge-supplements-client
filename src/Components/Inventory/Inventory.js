@@ -20,7 +20,7 @@ const Inventory = () => {
             <h1 className="text-center text-black">Collection Of <span className="text-danger fw-bold">Products</span> </h1>
             <div className="row mt-5">
                 {
-                    products.map(product =><div className="container  gy-5 col-md--12 col-md-6 col-lg-4  text-center">
+                    products.map(product =><div className="container gy-5 col-md--12 col-md-6 col-lg-4  text-center">
             <div className="card" style={{width: "18rem"}}>
   <img className="card-img-top" src={product.image} alt=""/>
   <div className="card-body">
