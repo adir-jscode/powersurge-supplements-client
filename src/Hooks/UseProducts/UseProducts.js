@@ -6,7 +6,7 @@ const UseProducts = () => {
     console.log(isLoading);
     useEffect(() => {
         setIsLoading(true);
-        fetch('http://localhost:5000/products')
+        fetch('https://still-sierra-81975.herokuapp.com/products')
             .then(response => response.json())
             .then(data => {
                 setProducts(data.slice(0, 6),

@@ -5,14 +5,14 @@ import Spinner from '../Spinner/Spinner';
 
 const Inventory = () => {
     const [products, setProducts] = useState([]);
-     const [isLoading, setIsLoading] = useState([]);
+     const [isLoading, setIsLoading] = useState(false);
     console.log(products);
     const navigate = useNavigate();
 
 
      useEffect(() => {
         setIsLoading(true);
-        fetch('http://localhost:5000/products')
+        fetch('https://still-sierra-81975.herokuapp.com/products')
             .then(response => response.json())
             .then(data => {
                 setProducts(data.slice(0, 6),

@@ -15,14 +15,14 @@ const InventoryDetails = () => {
     
     
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${inventoryId}`)
+        fetch(`https://still-sierra-81975.herokuapp.com/products/${inventoryId}`)
             .then(response => response.json())
             .then(data => setProduct(data));
     }, [product])
     
     const handleDelivery = () => {
         console.log("clicked");
-        fetch(`http://localhost:5000/products/${inventoryId}`, {
+        fetch(`https://still-sierra-81975.herokuapp.com/products/${inventoryId}`, {
   method: 'PUT',
   body: JSON.stringify({
       quantity: product.quantity - 1 
@@ -39,7 +39,7 @@ const InventoryDetails = () => {
         event.preventDefault();
         const addStock = event.target.quantity.value;
         console.log(addStock);
-        fetch(`http://localhost:5000/products/${inventoryId}`, {
+        fetch(`https://still-sierra-81975.herokuapp.com/products/${inventoryId}`, {
   method: 'PUT',
   body: JSON.stringify({
       quantity: product.quantity + parseInt(addStock)  

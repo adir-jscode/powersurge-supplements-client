@@ -16,7 +16,7 @@ const AddItem = () => {
       const supplier = event.target.supplier.value;
       const description = event.target.description.value;
         console.log(name, price,image);
-        fetch('http://localhost:5000/additem', {
+        fetch('https://still-sierra-81975.herokuapp.com/additem', {
   method: 'POST',
   body: JSON.stringify({
       name: name,

@@ -10,7 +10,7 @@ const ManageItems = () => {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch("http://localhost:5000/products")
+        fetch("https://still-sierra-81975.herokuapp.com/products")
             .then(response => response.json())
         .then(data=>setProducts(data))
     }, [])
@@ -24,7 +24,7 @@ const ManageItems = () => {
     const handleDeliver = (products) => {
         console.log(products);
         const {name,price,image,description,quantity,supplier}= products;
-        fetch('http://localhost:5000/myitems', {
+        fetch('https://still-sierra-81975.herokuapp.com/myitems', {
 
   method: 'POST',
   body: JSON.stringify({
@@ -49,7 +49,7 @@ const ManageItems = () => {
   
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/additem/${id}`, {
+    fetch(`https://still-sierra-81975.herokuapp.com/additem/${id}`, {
       method: 'DELETE'
     })
         .then(response => response.json())

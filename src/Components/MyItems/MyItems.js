@@ -11,7 +11,7 @@ const MyItems = () => {
 
   useEffect(() => {
       setIsLoading(true);
-        fetch('http://localhost:5000/selecteditems', {
+        fetch('https://still-sierra-81975.herokuapp.com/selecteditems', {
              headers: {
     "authorization": ` ${user.email} ${localStorage.getItem("accessToken")}`,
     'Content-type': 'application/json; charset=UTF-8',
@@ -28,7 +28,7 @@ const MyItems = () => {
       console.log(id);
       const confirm = window.confirm('Are you sure?');
       if (confirm) {
-        fetch(`http://localhost:5000/myitems/${id}`, {
+        fetch(`https://still-sierra-81975.herokuapp.com/myitems/${id}`, {
       method: 'DELETE'
     })
         .then(response => response.json())

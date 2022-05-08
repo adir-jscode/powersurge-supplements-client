@@ -36,7 +36,7 @@ const Login = () => {
   if (user) {
     toast("login successful");
     console.log(user.email);
-    fetch('http://localhost:5000/user', {
+    fetch('https://still-sierra-81975.herokuapp.com/user', {
   method: 'POST',
   body: JSON.stringify({
     email: user.email
